@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Responsive Nav Bar</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <style>
+        /* Add custom styles for sliding effect */
+        .slide-enter-active,
+        .slide-leave-active {
+            transition: transform 0.3s ease;
+        }
+        .slide-enter,
+        .slide-leave-to {
+            transform: translateX(100%);
+        }
+        .slide-leave,
+        .slide-enter-to {
+            transform: translateX(0);
+        }
+    </style>
+</head>
+<body>
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <!-- Mobile Menu: User Profile, Brand Name, Hamburger Menu, and Search Icon -->
+            <div class="flex md:hidden items-center justify-between w-full">
+                <button id="profile-button" class="text-slate-700 hover:text-gray-900">
+                    <!-- Replace with your user profile icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5.121 18.364A1.5 1.5 0 016.5 17h11a1.5 1.5 0 011.379 1.364l.121 1.236H4.5l.621-1.236zM15 11.25V10a3 3 0 00-6 0v1.25a4 4 0 106 0z" />
+                    </svg>
+                </button>
+                <div class="text-xl font-bold">
+                    SoleHearted
+                </div>
+                <div class="flex items-center">
+                    <button id="search-button" class="text-slate-700 hover:text-gray-900">
+                        <!-- Search Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                    <button id="hamburger-button" class="text-slate-700 hover:text-gray-900 ml-2">
+                        <!-- Hamburger Menu Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center justify-between w-full">
+                <!-- Brand Name -->
+                <div class="text-xl font-bold">
+                    SoleHearted
+                </div>
+                
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="#" class="text-slate-700 hover:text-gray-900">About Us</a>
+                    <a href="#" class="text-slate-700 hover:text-gray-900">Categories</a>
+                    <a href="#" class="text-slate-700 hover:text-gray-900">Contact Us</a>
+                </div>
+                
+                <!-- Search Bar -->
+                <div class="hidden md:flex items-center relative">
+                    <input type="text" class="border border-gray-300 rounded-full text-slate-700 py-2 px-4 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search...">
+                    <!-- Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+                
+                <!-- Notification Bell Icon & Sign/Login -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block text-slate-700 hover:text-gray-900">
+                        <!-- Replace with your bell icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                    <a href="#" class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300">Sign In / Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-md mt-2 hidden">
+            <a href="#" class="block px-4 py-2 text-slate-700 hover:bg-gray-100">About Us</a>
+            <a href="#" class="block px-4 py-2 text-slate-700 hover:bg-gray-100">Categories</a>
+            <a href="#" class="block px-4 py-2 text-slate-700 hover:bg-gray-100">Contact Us</a>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div id="mobile-search" class="md:hidden bg-white shadow-md mt-2 hidden">
+            <div class="relative px-4 py-2">
+                <input type="text" class="border border-gray-300 rounded-full py-2 px-4 pl-10 w-full text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500" placeholder="Search...">
+                <!-- Search Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 text-gray-400" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <div class="leftside bg-red-500 pt-10 text-8xl align-left">SoleHearted</div>
+    <div class="rightside bg-blue-500 align-right">
+        <div class="bg-red-800 w-20 h-10 align-right right_one">image1</div>
+        <div class="bg-slate-800 w-full right_two"></div>
+        <div class="bg-slate-800 w-full right_three"></div>
+        <div class="bg-slate-800 w-full right_four"></div>
+    </div>
+
+    <script>
+        document.getElementById('hamburger-button').addEventListener('click', function() {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('search-button').addEventListener('click', function() {
+            var search = document.getElementById('mobile-search');
+            if (search.classList.contains('hidden')) {
+                search.classList.remove('hidden');
+            } else {
+                search.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('profile-button').addEventListener('click', function() {
+            var profileMenu = document.getElementById('profile-menu');
+            if (profileMenu.classList.contains('hidden')) {
+                profileMenu.classList.remove('hidden');
+            } else {
+                profileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+a:focus {
+	/* Provide a fallback style for browsers
+	 that don't support :focus-visible */
+	outline: none;
+	background: black;
+}
+
+a:focus:not(:focus-visible) {
+	/* Remove the focus indicator on mouse-focus for browsers
+	 that do support :focus-visible */
+	background: transparent;
+}
+
+a:focus-visible {
+	/* Draw a very noticeable focus style for
+	 keyboard-focus on browsers that do support
+	 :focus-visible */
+	outline: 2px solid red;
+	background: transparent;
+}
