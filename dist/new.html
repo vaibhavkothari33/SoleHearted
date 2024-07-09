@@ -49,6 +49,7 @@
         .carousel-item {
             min-width: 100%;
             box-sizing: border-box;
+            border-radius:10px ;
         }
 
         .carousel-item img {
@@ -56,6 +57,7 @@
             height: 250px;
             /* Set a fixed height for all images */
             object-fit: cover;
+            border-radius: 10px;
         }
 
         .carousel-dots {
@@ -79,9 +81,46 @@
         .dot.active {
             background-color: #333;
         }
+
+        @media (width < 360px) {
+            .carousel-container {
+                position: relative;
+                width: 90%;
+                height: 150px;
+                max-width: 400px;
+                margin: auto;
+                overflow: hidden;
+                border-radius: 10px;
+                padding-bottom: 30px;
+                margin-top: 40px;
+            }
+
+            .carousel-item img {
+                position: relative;
+                width: 100%;
+                /* margin-left: 50px; */
+                padding-left: 10px;
+                height: 120px;
+                /* Set a fixed height for all images */
+                border-radius: 10px;
+                object-fit: cover;
+            }
+            .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+            border-radius:10px ;
+        }
+        .content--intro {
+	margin-top: -7vh;
+	/* padding-bottom: 25vh; */
+	z-index: 2;
+}
+
+
+        }
     </style>
 
-    </style>
+
 </head>
 
 <body>
@@ -259,42 +298,56 @@
         <p class="text-large">Discover the Best Deals on Footwear, Only at SoleHearted</p>
     </div>
     <div class="wrap">
-        <a href="target.html"><div class="content content--sticky content--grid bg-1">
-            <img class="content__img content__img--large content__img--left" src="../images/nike.png" />
-            <!-- <img class="content__img content__img--large content__img--left" src="../images/pngegg.png" /> -->
-            <!-- <img class="content__img content__img--large content__img--left" src="../img/8.png" /> -->
-            <h2 class="content__title"><i></i> Sneakers</h2>
-            <p class="content__text content__text--left text-meta">Unmatched Comfort, Unrivaled Style <br>Step Up Your
-                Game with the Latest Trends
-            </p>
-        </div></a>
-        <a href="target.html"><div class="content content--sticky content--grid bg-2">
-            <!-- <img class="content__img content__img--large content__img--left" src="../img/9.png" /> -->
-            <img class="content__img content__img--large content__img--left" src="../images/slider.png" />
-            <h2 class="content__title"><i>The</i> Sliders</h2>
-            <p class="content__text content__text--left text-meta">Effortless Comfort for Everyday Wear<br> Slide into
-                Style with Every Step</p>
-        </div></a>
-        <a href="target.html"><div class="content content--sticky content--grid bg-3">
-            <img class="content__img content__img--large content__img--left" src="../images/heels.png" />
-            <!-- <img class="content__img content__img--large content__img--left" src="../img/7.png" /> -->
-            <h2 class="content__title"><i>high</i> Heels</h2>
-            <p class="content__text content__text--left text-meta">Elevate Your Elegance <br> Turn Heads with Every Step
-                in Our Stylish High Heels<br>From Classic Stilettos to Trendy Platforms, Find Your Perfect Pair
-            </p>
-        </div></a>
-        <a href="target.html"><div class="content content--sticky content--grid bg-4">
-            <img class="content__img content__img--large content__img--left" src="../images/boots.png" />
-            <h2 class="content__title"><i>The</i> boots</h2>
-            <p class="content__text content__text--left text-meta">Durability Meets Style<br>Step Confidently in Our
-                Trendy Boots<br>Perfect for Every Season and Occasion</p>
-        </div></a>
-        <a href="target.html"><div class="content content--sticky content--grid bg-5">
-            <img class="content__img content__img--large content__img--left" src="../images/chappal.png" />
-            <h2 class="content__title"><i>The</i> chappals</h2>
-            <p class="content__text content__text--left text-meta">Effortless Style, Everyday Comfort<br>Keep It Casual
-                with Our Trendy Chappals<br>Perfect for Relaxed and Easy-Going Days</p>
-        </div></a>
+        <a href="target.html">
+            <div class="content content--sticky content--grid bg-1">
+                <img class="content__img content__img--large content__img--left" src="../images/nike.png" />
+                <!-- <img class="content__img content__img--large content__img--left" src="../images/pngegg.png" /> -->
+                <!-- <img class="content__img content__img--large content__img--left" src="../img/8.png" /> -->
+                <h2 class="content__title"><i></i> Sneakers</h2>
+                <p class="content__text content__text--left text-meta">Unmatched Comfort, Unrivaled Style <br>Step Up
+                    Your
+                    Game with the Latest Trends
+                </p>
+            </div>
+        </a>
+        <a href="target.html">
+            <div class="content content--sticky content--grid bg-2">
+                <!-- <img class="content__img content__img--large content__img--left" src="../img/9.png" /> -->
+                <img class="content__img content__img--large content__img--left" src="../images/slider.png" />
+                <h2 class="content__title"><i>The</i> Sliders</h2>
+                <p class="content__text content__text--left text-meta">Effortless Comfort for Everyday Wear<br> Slide
+                    into
+                    Style with Every Step</p>
+            </div>
+        </a>
+        <a href="target.html">
+            <div class="content content--sticky content--grid bg-3">
+                <img class="content__img content__img--large content__img--left" src="../images/heels.png" />
+                <!-- <img class="content__img content__img--large content__img--left" src="../img/7.png" /> -->
+                <h2 class="content__title"><i>high</i> Heels</h2>
+                <p class="content__text content__text--left text-meta">Elevate Your Elegance <br> Turn Heads with Every
+                    Step
+                    in Our Stylish High Heels<br>From Classic Stilettos to Trendy Platforms, Find Your Perfect Pair
+                </p>
+            </div>
+        </a>
+        <a href="target.html">
+            <div class="content content--sticky content--grid bg-4">
+                <img class="content__img content__img--large content__img--left" src="../images/boots.png" />
+                <h2 class="content__title"><i>The</i> boots</h2>
+                <p class="content__text content__text--left text-meta">Durability Meets Style<br>Step Confidently in Our
+                    Trendy Boots<br>Perfect for Every Season and Occasion</p>
+            </div>
+        </a>
+        <a href="target.html">
+            <div class="content content--sticky content--grid bg-5">
+                <img class="content__img content__img--large content__img--left" src="../images/chappal.png" />
+                <h2 class="content__title"><i>The</i> chappals</h2>
+                <p class="content__text content__text--left text-meta">Effortless Style, Everyday Comfort<br>Keep It
+                    Casual
+                    with Our Trendy Chappals<br>Perfect for Relaxed and Easy-Going Days</p>
+            </div>
+        </a>
         <!-- <a href="target.html"><div class="content content--sticky content--grid bg-6">
             <img class="content__img content__img--large content__img--left" src="../img/12.png" />
             <h2 class="content__title"><i>The</i> Opulence</h2>
@@ -304,7 +357,8 @@
         </div> -->
     </div>
     <div class="content content--highlight content--outro">
-        <p class="text-large">Discover the perfect pair at SoleHearted. We bring you top-quality footwear at unbeatable prices, ensuring every step is stylish and comfortable</p>
+        <p class="text-large">Discover the perfect pair at SoleHearted. We bring you top-quality footwear at unbeatable
+            prices, ensuring every step is stylish and comfortable</p>
         <img class="content__img spacer" src="../images/boots.png" />
     </div>
     </div>
