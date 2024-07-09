@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SoleHearted</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://use.typekit.net/lsf5xpv.css">
+    <link rel="stylesheet" href="../src/styles.css">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <script defer src="../js/slider.js"></script>
+    <script>document.documentElement.className = "js";</script>
+    <style>
+        /* Add custom styles for sliding effect */
+        .slide-enter-active,
+        .slide-leave-active {
+            transition: transform 0.3s ease;
+        }
+
+        .slide-enter,
+        .slide-leave-to {
+            transform: translateX(100%);
+        }
+
+        .slide-leave,
+        .slide-enter-to {
+            transform: translateX(0);
+        }
+
+
+        .carousel-container {
+            position: relative;
+            width: 100%;
+            max-width: 800px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 10px;
+            padding-bottom: 30px;
+            margin-top: 40px;
+        }
+
+        .carousel-track {
+            display: flex;
+            transition: transform 0.5s ease;
+        }
+
+        .carousel-item {
+            min-width: 100%;
+            box-sizing: border-box;
+        }
+
+        .carousel-item img {
+            width: 120%;
+            height: 250px;
+            /* Set a fixed height for all images */
+            object-fit: cover;
+        }
+
+        .carousel-dots {
+            position: absolute;
+            bottom: 10px;
+            left: 50%;
+            transform: translateX(-50%);
+            display: flex;
+            gap: 8px;
+        }
+
+        .dot {
+            width: 12px;
+            height: 12px;
+            background-color: #ccc;
+            border-radius: 50%;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+
+        .dot.active {
+            background-color: #333;
+        }
+    </style>
+
+    </style>
+</head>
+
+<body>
+    <nav class="bg-white shadow-md">
+        <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+            <!-- Mobile Menu: User Profile, Brand Name, Hamburger Menu, and Search Icon -->
+            <div class="flex md:hidden items-center justify-between w-full">
+                <button id="profile-button" class="text-slate-700 hover:text-gray-900">
+                    <!-- Replace with your user profile icon SVG -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.121 18.364A1.5 1.5 0 016.5 17h11a1.5 1.5 0 011.379 1.364l.121 1.236H4.5l.621-1.236zM15 11.25V10a3 3 0 00-6 0v1.25a4 4 0 106 0z" />
+                    </svg>
+                </button>
+                <div class="text-xl font-bold text-gray-900">
+                    SoleHearted
+                </div>
+                <div class="flex items-center">
+                    <button id="search-button" class="text-Tacao hover:text-gray-900">
+                        <!-- Search Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </button>
+                    <button id="hamburger-button" class="text-slate-700 hover:text-gray-900 ml-2">
+                        <!-- Hamburger Menu Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16m-7 6h7" />
+                        </svg>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Desktop Menu -->
+            <div class="hidden md:flex items-center justify-between w-full">
+                <!-- Brand Name -->
+                <div class="text-xl text-gray-900 font-bold">
+                    SoleHearted
+                </div>
+
+                <!-- Menu Items -->
+                <div class="hidden md:flex space-x-6">
+                    <a href="target.html" class="text-center text-gray-900">About Us</a>
+                    <a href="target.html" class="text-center text-gray-900">Categories</a>
+                    <a href="target.html" class="text-center text-gray-900">Contact Us</a>
+                </div>
+
+                <!-- Search Bar -->
+                <div class="hidden md:flex items-center relative">
+                    <input type="text"
+                        class="border border-gray-300 rounded-full text-slate-700 py-2 px-4 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                        placeholder="Search...">
+                    <!-- Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 text-gray-400" fill="none"
+                        viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+
+                <!-- Notification Bell Icon & Sign/Login -->
+                <div class="flex items-center space-x-4">
+                    <button class="hidden md:block text-slate-700 hover:text-gray-900">
+                        <!-- Replace with your bell icon SVG -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                            stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                        </svg>
+                    </button>
+                    <a href="target.html"
+                        class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300">Sign
+                        In / Login</a>
+                </div>
+            </div>
+        </div>
+
+        <!-- Mobile Menu Dropdown -->
+        <div id="mobile-menu" class="md:hidden bg-white shadow-md mt-2 hidden">
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">About Us</a>
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">Categories</a>
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">Contact Us</a>
+        </div>
+
+        <!-- Mobile Search Bar -->
+        <div id="mobile-search" class="md:hidden bg-white shadow-md mt-2 hidden">
+            <div class="relative px-4 py-2">
+                <input type="text"
+                    class="border border-gray-300 rounded-full py-2 px-4 pl-10 w-full text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
+                    placeholder="Search...">
+                <!-- Search Icon -->
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-4 mt-1 ml-3 top-4 text-gray-400"
+                    fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                        d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                </svg>
+            </div>
+        </div>
+    </nav>
+
+    <!-- *************************************************************************** -->
+    <!-- Your existing HTML structure -->
+
+    <!-- Add this slideshow container somewhere within your existing structure -->
+    <div class="carousel-container">
+        <div id="carouselTrack" class="carousel-track">
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image.png" alt="Trend 1"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image2.png" alt="Trend 2"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image3.png" alt="Trend 3"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image4.png" alt="Trend 4"></a>
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image5.png" alt="Trend 4"></a>
+            </div>
+        </div>
+        <div class="carousel-dots">
+            <div class="dot active" data-index="0"></div>
+            <div class="dot" data-index="1"></div>
+            <div class="dot" data-index="2"></div>
+            <div class="dot" data-index="3"></div>
+            <div class="dot" data-index="4"></div>
+        </div>
+    </div>
+    <!-- <div class="relative w-full max-w-3xl mx-auto mt-8">
+        <div id="carousel" class="carousel-container relative overflow-hidden">
+            <div class="carousel-item active">
+                <a href="target.html"><img src="../images/image.png" alt="Trend 1"</a> class="w-full h-auto">
+            </div>
+            <div class="carousel-item ">
+                <a href="target.html"><img src="../images/image2.png" alt="Trend 2"</a> class="w-full h-auto">
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image3.png" alt="Trend 3"</a> class="w-full h-auto">
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image4.png" alt="Trend 4"</a> class="w-full h-auto">
+            </div>
+            <div class="carousel-item">
+                <a href="target.html"><img src="../images/image5.png" alt="Trend 5"</a> class="w-full h-auto">
+            </div>
+        </div>
+        <div class="absolute bottom-0 left-0 right-0 flex justify-center p-2 space-x-2">
+            <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></div>
+            <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></div>
+            <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></div>
+            <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></div>
+            <div class="dot w-3 h-3 bg-gray-400 rounded-full cursor-pointer"></div>
+        </div>
+    </div> -->
+
+    <!-- End of the slideshow container -->
+
+    <!-- Your existing HTML structure continues -->
+
+    <!-- **************************************************************************************** -->
+
+    <div class="frame__heading">
+        <!-- <h2 class="content__title"><i>The</i> Denizens</h2> -->
+        <!-- <p class="text-meta">An exploration of the Synthetic Era.</p> -->
+    </div>
+    </header>
+    <div class="content content--highlight content--intro">
+        <p class="text-large">Discover the Best Deals on Footwear, Only at SoleHearted</p>
+    </div>
+    <div class="wrap">
+        <a href="target.html"><div class="content content--sticky content--grid bg-1">
+            <img class="content__img content__img--large content__img--left" src="../images/nike.png" />
+            <!-- <img class="content__img content__img--large content__img--left" src="../images/pngegg.png" /> -->
+            <!-- <img class="content__img content__img--large content__img--left" src="../img/8.png" /> -->
+            <h2 class="content__title"><i></i> Sneakers</h2>
+            <p class="content__text content__text--left text-meta">Unmatched Comfort, Unrivaled Style <br>Step Up Your
+                Game with the Latest Trends
+            </p>
+        </div></a>
+        <a href="target.html"><div class="content content--sticky content--grid bg-2">
+            <!-- <img class="content__img content__img--large content__img--left" src="../img/9.png" /> -->
+            <img class="content__img content__img--large content__img--left" src="../images/slider.png" />
+            <h2 class="content__title"><i>The</i> Sliders</h2>
+            <p class="content__text content__text--left text-meta">Effortless Comfort for Everyday Wear<br> Slide into
+                Style with Every Step</p>
+        </div></a>
+        <a href="target.html"><div class="content content--sticky content--grid bg-3">
+            <img class="content__img content__img--large content__img--left" src="../images/heels.png" />
+            <!-- <img class="content__img content__img--large content__img--left" src="../img/7.png" /> -->
+            <h2 class="content__title"><i>high</i> Heels</h2>
+            <p class="content__text content__text--left text-meta">Elevate Your Elegance <br> Turn Heads with Every Step
+                in Our Stylish High Heels<br>From Classic Stilettos to Trendy Platforms, Find Your Perfect Pair
+            </p>
+        </div></a>
+        <a href="target.html"><div class="content content--sticky content--grid bg-4">
+            <img class="content__img content__img--large content__img--left" src="../images/boots.png" />
+            <h2 class="content__title"><i>The</i> boots</h2>
+            <p class="content__text content__text--left text-meta">Durability Meets Style<br>Step Confidently in Our
+                Trendy Boots<br>Perfect for Every Season and Occasion</p>
+        </div></a>
+        <a href="target.html"><div class="content content--sticky content--grid bg-5">
+            <img class="content__img content__img--large content__img--left" src="../images/chappal.png" />
+            <h2 class="content__title"><i>The</i> chappals</h2>
+            <p class="content__text content__text--left text-meta">Effortless Style, Everyday Comfort<br>Keep It Casual
+                with Our Trendy Chappals<br>Perfect for Relaxed and Easy-Going Days</p>
+        </div></a>
+        <!-- <a href="target.html"><div class="content content--sticky content--grid bg-6">
+            <img class="content__img content__img--large content__img--left" src="../img/12.png" />
+            <h2 class="content__title"><i>The</i> Opulence</h2>
+            <p class="content__text content__text--left text-meta">"The Opulence" epitomizes the cognitive elite's
+                wealth in the algorithmic society, where opulent thoughts and experiences shape the societal narrative.
+            </p></a>
+        </div> -->
+    </div>
+    <div class="content content--highlight content--outro">
+        <p class="text-large">Discover the perfect pair at SoleHearted. We bring you top-quality footwear at unbeatable prices, ensuring every step is stylish and comfortable</p>
+        <img class="content__img spacer" src="../images/boots.png" />
+    </div>
+    </div>
+    <a href="index.html" class="bg-blue-800">click here</a>
+    </main>
+    <script src="../js/gsap.min.js"></script>
+    <script src="../js/ScrollTrigger.min.js"></script>
+    <script src="../js/lenis.min.js"></script>
+    <script src="../js/imagesloaded.pkgd.min.js"></script>
+    <script type="module" src="../js/demo2/index.js"></script>
+    <!-- SoleHearted01\js\gsap.min.js -->
+
+
+    <script>
+        document.getElementById('hamburger-button').addEventListener('click', function () {
+            var menu = document.getElementById('mobile-menu');
+            if (menu.classList.contains('hidden')) {
+                menu.classList.remove('hidden');
+            } else {
+                menu.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('search-button').addEventListener('click', function () {
+            var search = document.getElementById('mobile-search');
+            if (search.classList.contains('hidden')) {
+                search.classList.remove('hidden');
+            } else {
+                search.classList.add('hidden');
+            }
+        });
+
+        document.getElementById('profile-button').addEventListener('click', function () {
+            var profileMenu = document.getElementById('profile-menu');
+            if (profileMenu.classList.contains('hidden')) {
+                profileMenu.classList.remove('hidden');
+            } else {
+                profileMenu.classList.add('hidden');
+            }
+        });
+    </script>
+</body>
+
+</html>
