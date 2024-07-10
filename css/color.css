@@ -1,0 +1,38 @@
+.mandy {
+    color: rgb(228, 94, 107);
+    font-weight: 500;
+}
+
+.wewak {
+    color: rgb(244, 165, 164);
+    font-weight: 500;
+}
+
+.tacao {
+    color: rgb(244, 156, 138);
+    font-weight: 500;
+}
+
+.BurntSienna {
+    color: rgb(242, 123, 90);
+    font-weight: 500;
+}
+
+.youpink {
+    color: rgb(255, 205, 204);
+}
+input{
+    border:1px rgb(242, 123, 90) solid;
+
+}
+input::placeholder {
+    color: rgb(242, 123, 90);
+    opacity: 0.5;
+}
+.login{
+    background-color: rgb(244, 165, 164);
+    color: white;
+}
+.login:hover{
+    background-color: rgb(244, 156, 138);
+}

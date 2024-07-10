@@ -1,0 +1,522 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chappals</title>
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="../src/styles.css">
+    <link rel="stylesheet" href="../src/input.css">
+    <link rel="stylesheet" href="../css/color.css">
+    <script src="../js/nav.js"></script>
+    <link rel="stylesheet" type="text/css" href="../css/base.css" />
+    <style>
+        /* Custom styles if necessary */
+        .dropdown-enter-active,
+        .dropdown-leave-active {
+            transition: max-height 0.3s ease;
+        }
+
+        .dropdown-enter,
+        .dropdown-leave-to {
+            max-height: 0;
+        }
+
+        .dropdown-enter-to,
+        .dropdown-leave {
+            max-height: 1000px;
+            /* adjust as necessary */
+        }
+    </style>
+</head>
+
+<body>
+    <div class="bg-gray-200">
+        <nav class="bg-white shadow-md">
+            <div class="container mx-auto px-4 py-2 flex items-center justify-between">
+                <!-- Mobile Menu: User Profile, Brand Name, Hamburger Menu, and Search Icon -->
+                <div class="flex md:hidden items-center justify-between  w-full">
+                    <button id="profile-button" class="text-slate-700 hover:text-gray-900">
+                        <!-- Replace with your user profile icon SVG -->
+                        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24" -->
+                        <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="" class="h-6 w-6 BurntSienna"
+                            fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <!-- <svg xmlns="https://freesvg.org/img/abstract-user-flat-4.png" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
+                        stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M5.121 18.364A1.5 1.5 0 016.5 17h11a1.5 1.5 0 011.379 1.364l.121 1.236H4.5l.621-1.236zM15 11.25V10a3 3 0 00-6 0v1.25a4 4 0 106 0z" />
+                    </svg> -->
+                    </button>
+                    <div class="text-xl font-bold mandy">
+                        SoleHearted
+                    </div>
+                    <div class="flex items-center">
+                        <button id="search-button" class="text-rgb(228, 94, 107)">
+                            <!-- Search Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                            </svg>
+                        </button>
+                        <!-- <button id="hamburger-button" class="text-slate-700 hover:text-gray-900 ml-2"> -->
+                        <button id="hamburger-button" class="text-Mandy hover:text-gray-900 ml-2">
+                            <!-- Hamburger Menu Icon -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none"
+                                viewBox="0 0 24 24" stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M4 6h16M4 12h16m-7 6h7" />
+                            </svg>
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Desktop Menu -->
+                <div class="hidden md:flex items-center justify-between w-full">
+                    <!-- Brand Name -->
+                    <div class="text-3xl mandy">
+                        SoleHearted
+                    </div>
+
+                    <!-- Menu Items -->
+                    <div class="hidden md:flex space-x-6">
+                        <a href="index1.html" class="text-center text-xl BurntSienna">Home</a>
+                        <a href="target.html" class="text-center text-xl BurntSienna">About Us</a>
+                        <a href="target.html" class="text-center text-xl BurntSienna">Contact Us</a>
+                    </div>
+
+                    <!-- Search Bar -->
+                    <div class="hidden md:flex items-center relative">
+                        <input type="text" class="rounded-full BurntSienna py-2 px-4 pl-10 w-64 "
+                            placeholder="Search...">
+                        <!-- Search Icon -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 BurntSienna " fill="none"
+                            viewBox="0 0 24 24" stroke="currentColor">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                        </svg>
+                    </div>
+
+                    <!-- Notification Bell Icon & Sign/Login -->
+                    <div class="flex items-center space-x-4">
+                        <button class="hidden md:block BurntSienna">
+                            <!-- Replace with your bell icon SVG -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
+                                stroke="currentColor">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                    d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
+                            </svg>
+                        </button>
+                        <a href="target.html"
+                            class=" login mandy text-white px-4 py-2 rounded-full transition duration-300">Sign
+                            In / Login</a>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Mobile Menu Dropdown -->
+            <div id="mobile-menu" class="md:hidden bg-white shadow-md mt-2 hidden">
+                <a href="index1.html" class="block px-4 py-2 text-center BurntSienna">Home</a>
+                <a href="target.html" class="block px-4 py-2 text-center BurntSienna">About Us</a>
+                <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Contact Us</a>
+            </div>
+
+            <!-- Mobile Search Bar -->
+            <div id="mobile-search" class="md:hidden bg-white shadow-md mt-2  hidden">
+                <div class="relative px-4 py-2">
+                    <input type="text" class="BurntSienna rounded-full py-2 px-4 pl-10 w-full" placeholder="Search...">
+                    <!-- Search Icon -->
+                    <svg xmlns="http://www.w3.org/2000/svg" class=" BurntSienna h-5 w-5 absolute left-4 mt-1 ml-3 top-4"
+                        fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                            d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
+                    </svg>
+                </div>
+            </div>
+        </nav>
+
+
+        <!-- Main Content -->
+        <div class="container mx-auto mt-8 flex flex-col md:flex-row">
+            <!-- Filter Section (Hidden on Mobile) -->
+            <aside class="hidden md:block w-1/4 p-4 bg-white rounded shadow-md">
+                <h2 class="text-lg font-semibold mb-4">Filters</h2>
+                <!-- <div class="mb-4">
+                <label class="block mb-2 font-semibold">Category</label>
+                <select class="w-full border border-gray-300 rounded px-2 py-1">
+                    <option>All</option>
+                    <option>Men's Footwear</option>
+                    <option>Women's Footwear</option>
+                    <option>Kids' Footwear</option>
+                    <option>Specialty Footwear</option>
+                    <option>Seasonal Footwear</option>
+                </select>
+            </div> -->
+                <!-- Brands -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Brand</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>Nike</option>
+                        <option>All</option>
+                        <option>Adidas</option>
+                        <option>Puma</option>
+                        <option>Reebok</option>
+                        <option>Skechers</option>
+                        <option>Fila</option>
+                        <option>HRX</option>
+                    </select>
+                </div>
+                <!-- Price Range -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Price Range</label>
+                    <input type="range" min="0" max="1000" class="w-full">
+                </div>
+                <!-- Colors -->
+                <!-- Colors -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Color</label>
+                    <div class="flex flex-wrap gap-2">
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-black" title="Black"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-white" title="White"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-blue-500" title="Blue"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-red-500" title="Red"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-green-500" title="Green"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-yellow-500"title="Yellow"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-green-800" title="Dark Green"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-gray-500" title="Grey"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-pink-500" title="Pink"></button>
+                        <button class="w-8 h-8 rounded-full border border-gray-300 bg-purple-500"
+                            title="Purple"></button>
+                        <button
+                            class="w-8 h-8 rounded-full border border-gray-300 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
+                            title="Multi-color"></button>
+                    </div>
+                </div>
+
+                <!-- Size -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Size</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>6</option>
+                        <option>7</option>
+                        <option>8</option>
+                        <option>9</option>
+                        <option>10</option>
+                        <option>11</option>
+                        <option>12</option>
+                        <option>4</option>
+                        <option>5</option>
+                        <option>Kids Sizes 1-5</option>
+                    </select>
+                </div>
+                <!-- Material -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Material</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>Leather</option>
+                        <option>Synthetic</option>
+                        <option>Canvas</option>
+                        <option>Mesh</option>
+                        <option>Suede</option>
+                        <option>Rubber</option>
+                        <option>Textile</option>
+                    </select>
+                </div>
+                <!-- Occasion -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Occasion</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>Casual</option>
+                        <option>Formal</option>
+                        <option>Sports</option>
+                        <option>Party</option>
+                        <option>Outdoor</option>
+                        <option>Workwear</option>
+                    </select>
+                </div>
+                <!-- Discount -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Discount</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>Less than 10%</option>
+                        <option>10% - 20%</option>
+                        <option>20% - 30%</option>
+                        <option>30% - 40%</option>
+                        <option>40% - 50%</option>
+                        <option>More than 50%</option>
+                    </select>
+                </div>
+                <!-- Ratings -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Ratings</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>5 Stars</option>
+                        <option>4 Stars and Up</option>
+                        <option>3 Stars and Up</option>
+                        <option>2 Stars and Up</option>
+                        <option>1 Star and Up</option>
+                    </select>
+                </div>
+                <!-- Availability -->
+                <div class="mb-4">
+                    <label class="block mb-2 font-semibold">Availability</label>
+                    <select class="w-full border border-gray-300 rounded px-2 py-1">
+                        <option>In Stock</option>
+                        <option>Out of Stock</option>
+                    </select>
+                </div>
+            </aside>
+
+            <!-- Mobile Filter Button -->
+            <div class="block md:hidden p-4 bg-white rounded shadow-md">
+                <button id="filter-button" class="w-full bg-blue-500 text-white py-2 px-4 rounded">Filter</button>
+                <div id="mobile-filters" class="mt-4 hidden">
+                    <!-- Mobile Filters (same as desktop but collapsible) -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold">Brand</label>
+                        <select class="w-full border border-gray-300 rounded px-2 py-1">
+                            <option>Nike</option>
+                            <option>All</option>
+                            <option>Adidas</option>
+                            <option>Puma</option>
+                            <option>Reebok</option>
+                            <option>Skechers</option>
+                            <option>Fila</option>
+                            <option>HRX</option>
+                        </select>
+                    </div>
+                    <!-- Price Range -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold">Price Range</label>
+                        <input type="range" min="0" max="1000" class="w-full">
+                    </div>
+                    <!-- Colors -->
+                    <!-- Colors -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold">Color</label>
+                        <div class="flex flex-wrap gap-2">
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-black" title="Black"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-white" title="White"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-blue-500"
+                                title="Blue"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-red-500" title="Red"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-green-500"
+                                title="Green"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-yellow-500"
+                                title="Yellow"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-green-800"
+                                title="Dark Green"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-gray-500"
+                                title="Grey"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-pink-500"
+                                title="Pink"></button>
+                            <button class="w-8 h-8 rounded-full border border-gray-300 bg-purple-500"
+                                title="Purple"></button>
+                            <button
+                                class="w-8 h-8 rounded-full border border-gray-300 bg-gradient-to-r from-pink-500 via-red-500 to-yellow-500"
+                                title="Multi-color"></button>
+                        </div>
+                    </div>
+
+                    <!-- Size -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold">Size</label>
+                        <select class="w-full border border-gray-300 rounded px-2 py-1">
+                            <option>6</option>
+                            <option>7</option>
+                            <option>8</option>
+                            <option>9</option>
+                            <option>10</option>
+                            <option>11</option>
+                            <option>12</option>
+                            <option>4</option>
+                            <option>5</option>
+                            <option>Kids Sizes 1-5</option>
+                        </select>
+                    </div>
+                    <!-- Material -->
+                    <div class="mb-4">
+                        <label class="block mb-2 font-semibold">Material</label>
+                        <select class="w-full border border-gray-300 rounded px-2 py-1">
+                            <option>Leather</option>
+                            <option>Synthetic</option>
+                            <option>Canvas</option>
+                            <option>Mesh</option>
+                            <option>Suede</option>
+                            <option>Rubber</option>
+                            <option>Textile</option>
+                        </select>
+                    </div>
+
+                    <!-- Repeating filters for mobile with collapsible behavior -->
+                </div>
+            </div>
+
+            </aside>
+
+            <!-- Product Grid -->
+            <div class="w-full md:w-3/4 p-4">
+                <!-- Product Grid -->
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4">
+                    <!-- Product Card -->
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/2_1e42d722-fe92-41d3-9bd9-461991827e96.jpg?v=1710766582&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Jaipur Garden Braided Kolhapuri Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+
+                    <!-- Repeat Product Cards as needed -->
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/2_31104977-ee92-4cac-8a78-50ff2b040985.jpg?v=1710766570&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Bangalore Botanica Curvy Toe Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/2_1e42d722-fe92-41d3-9bd9-461991827e96.jpg?v=1710766582&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Andaman Marine Braided Kolhapuri Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/RohtangStripes_1_63203df7-b1d1-4253-b527-59a59bf6b56e.jpg?v=1667139721&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Wadiyar Qila Braided Kolhapuri Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/KashmirJhallar_7.jpg?v=1667136287&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Rohtang Stripes One Toe Kolhapuri Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/HooghlyGarden_6.jpg?v=1667135120&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Mysore Garden Curvy Toe Chappal</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/Top2_ec0d324b-21e5-4ad4-a365-74a33b9f6a28.jpg?v=1663187920&width=800"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Hooghly Garden One Toe Kolhapuri Chappal
+                            Sale price</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/Top1_f91be852-8237-4d44-9018-610dd0107106.jpg?v=1663188124&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Kadapa Garden Women's Chappals
+                            Sale price</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md p-4">
+                        <img src="https://zouk.co.in/cdn/shop/products/Thumbnail3.jpg?v=1663417909&width=500"
+                            alt="Product"
+                            class="w-full max-w-xs md:max-w-sm lg:max-w-md h-48 object-cover rounded-t-lg mx-auto">
+                        <h3 class="mt-4 text-lg font-semibold">Sanjan Jaali Women's Chappals</h3>
+                        <div class="flex items-center justify-between mt-2">
+                            <p class="text-gray-600">
+                                <span class="line-through text-red-500">₹500</span>
+                                <span class="ml-2">₹399</span>
+                            </p>
+                            <button class="BurntSienna  text-white px-4 py-2 rounded-full">
+                                Buy Now
+                            </button>
+                        </div>
+                    </div>
+                    <!-- Add more product cards as needed -->
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        // Mobile filter toggle
+        document.getElementById('filter-button').addEventListener('click', function () {
+            const filters = document.getElementById('mobile-filters');
+            if (filters.classList.contains('hidden')) {
+                filters.classList.remove('hidden');
+            } else {
+                filters.classList.add('hidden');
+            }
+        });
+
+
+    </script>
+</body>
+
+</html>
