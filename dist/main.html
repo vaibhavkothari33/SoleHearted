@@ -49,7 +49,7 @@
         .carousel-item {
             min-width: 100%;
             box-sizing: border-box;
-            border-radius: 10px;
+            border-radius:10px ;
         }
 
         .carousel-item img {
@@ -79,57 +79,16 @@
         }
 
         .dot.active {
-            background-color: rgb(228, 94, 107);
+            background-color: #333;
         }
-
-        img {
+        img{
             border-radius: 10px;
         }
-
-        .mandy {
-            color: rgb(228, 94, 107);
-            font-weight: 500;
-        }
-
-        .wewak {
-            color: rgb(244, 165, 164);
-            font-weight: 500;
-        }
-
-        .tacao {
-            color: rgb(244, 156, 138);
-            font-weight: 500;
-        }
-
-        .BurntSienna {
-            color: rgb(242, 123, 90);
-            font-weight: 500;
-        }
-
-        .youpink {
-            color: rgb(255, 205, 204);
-        }
-        input{
-            border:1px rgb(242, 123, 90) solid;
-
-        }
-        input::placeholder {
-            color: rgb(242, 123, 90);
-            opacity: 0.5;
-        }
-        .login{
-            background-color: rgb(244, 165, 164);
-            color: white;
-        }
-        .login:hover{
-            background-color: rgb(244, 156, 138);
-        }
-
+        
         @media (width < 430px) {
-            img {
+            img{
                 border-radius: 10px;
             }
-
             .carousel-container {
                 position: relative;
                 width: 85%;
@@ -152,18 +111,16 @@
                 border-radius: 10px;
                 object-fit: cover;
             }
-
             .carousel-item {
-                min-width: 100%;
-                box-sizing: border-box;
-                border-radius: 10px;
-            }
-
-            .content--intro {
-                margin-top: -7vh;
-                /* padding-bottom: 25vh; */
-                z-index: 2;
-            }
+            min-width: 100%;
+            box-sizing: border-box;
+            border-radius:10px ;
+        }
+        .content--intro {
+	margin-top: -7vh;
+	/* padding-bottom: 25vh; */
+	z-index: 2;
+}
 
 
         }
@@ -176,34 +133,30 @@
     <nav class="bg-white shadow-md">
         <div class="container mx-auto px-4 py-2 flex items-center justify-between">
             <!-- Mobile Menu: User Profile, Brand Name, Hamburger Menu, and Search Icon -->
-            <div class="flex md:hidden items-center justify-between  w-full">
+            <div class="flex md:hidden items-center justify-between w-full">
                 <button id="profile-button" class="text-slate-700 hover:text-gray-900">
                     <!-- Replace with your user profile icon SVG -->
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24" -->
-                  <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt="" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
-                  stroke="currentColor" >
-                    <!-- <svg xmlns="https://freesvg.org/img/abstract-user-flat-4.png" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M5.121 18.364A1.5 1.5 0 016.5 17h11a1.5 1.5 0 011.379 1.364l.121 1.236H4.5l.621-1.236zM15 11.25V10a3 3 0 00-6 0v1.25a4 4 0 106 0z" />
-                    </svg> -->
+                    </svg>
                 </button>
-                <div class="text-xl font-bold mandy">
+                <div class="text-xl font-bold text-gray-900">
                     SoleHearted
                 </div>
                 <div class="flex items-center">
-                    <button id="search-button" class="text-rgb(228, 94, 107)">
+                    <button id="search-button" class="text-Tacao hover:text-gray-900">
                         <!-- Search Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
                         </svg>
                     </button>
-                    <!-- <button id="hamburger-button" class="text-slate-700 hover:text-gray-900 ml-2"> -->
-                    <button id="hamburger-button" class="text-Mandy hover:text-gray-900 ml-2">
+                    <button id="hamburger-button" class="text-slate-700 hover:text-gray-900 ml-2">
                         <!-- Hamburger Menu Icon -->
-                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
                             <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                                 d="M4 6h16M4 12h16m-7 6h7" />
@@ -215,24 +168,24 @@
             <!-- Desktop Menu -->
             <div class="hidden md:flex items-center justify-between w-full">
                 <!-- Brand Name -->
-                <div class="text-3xl mandy">
+                <div class="text-xl text-gray-900 font-bold">
                     SoleHearted
                 </div>
 
                 <!-- Menu Items -->
                 <div class="hidden md:flex space-x-6">
-                    <a href="target.html" class="text-center text-xl BurntSienna">About Us</a>
-                    <a href="target.html" class="text-center text-xl BurntSienna">Categories</a>
-                    <a href="target.html" class="text-center text-xl BurntSienna">Contact Us</a>
+                    <a href="target.html" class="text-center text-gray-900">About Us</a>
+                    <a href="target.html" class="text-center text-gray-900">Categories</a>
+                    <a href="target.html" class="text-center text-gray-900">Contact Us</a>
                 </div>
 
                 <!-- Search Bar -->
                 <div class="hidden md:flex items-center relative">
                     <input type="text"
-                        class="rounded-full BurntSienna py-2 px-4 pl-10 w-64 "
+                        class="border border-gray-300 rounded-full text-slate-700 py-2 px-4 pl-10 w-64 focus:outline-none focus:ring-2 focus:ring-blue-500"
                         placeholder="Search...">
                     <!-- Search Icon -->
-                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 BurntSienna " fill="none"
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-3 text-gray-400" fill="none"
                         viewBox="0 0 24 24" stroke="currentColor">
                         <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                             d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -241,7 +194,7 @@
 
                 <!-- Notification Bell Icon & Sign/Login -->
                 <div class="flex items-center space-x-4">
-                    <button class="hidden md:block BurntSienna">
+                    <button class="hidden md:block text-slate-700 hover:text-gray-900">
                         <!-- Replace with your bell icon SVG -->
                         <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
                             stroke="currentColor">
@@ -250,7 +203,7 @@
                         </svg>
                     </button>
                     <a href="target.html"
-                        class=" login mandy text-white px-4 py-2 rounded-full transition duration-300">Sign
+                        class="bg-blue-500 text-white px-4 py-2 rounded-full hover:bg-blue-600 transition duration-300">Sign
                         In / Login</a>
                 </div>
             </div>
@@ -258,19 +211,19 @@
 
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden bg-white shadow-md mt-2 hidden">
-            <a href="target.html" class="block px-4 py-2 text-center BurntSienna">About Us</a>
-            <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Categories</a>
-            <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Contact Us</a>
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">About Us</a>
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">Categories</a>
+            <a href="target.html" class="block px-4 py-2 text-center text-gray-900">Contact Us</a>
         </div>
 
         <!-- Mobile Search Bar -->
-        <div id="mobile-search" class="md:hidden bg-white shadow-md mt-2  hidden">
+        <div id="mobile-search" class="md:hidden bg-white shadow-md mt-2 hidden">
             <div class="relative px-4 py-2">
                 <input type="text"
-                    class="BurntSienna rounded-full py-2 px-4 pl-10 w-full"
+                    class="border border-gray-300 rounded-full py-2 px-4 pl-10 w-full text-slate-700 focus:outline-none focus:ring-2 focus:ring-blue-500"
                     placeholder="Search...">
                 <!-- Search Icon -->
-                <svg xmlns="http://www.w3.org/2000/svg" class=" BurntSienna h-5 w-5 absolute left-4 mt-1 ml-3 top-4"
+                <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 absolute left-4 mt-1 ml-3 top-4 text-gray-400"
                     fill="none" viewBox="0 0 24 24" stroke="currentColor">
                     <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
                         d="M21 21l-4.35-4.35m1.05-5.4a7 7 0 11-14 0 7 7 0 0114 0z" />
@@ -280,8 +233,9 @@
     </nav>
 
     <!-- *************************************************************************** -->
+    <!-- Your existing HTML structure -->
 
-    <!--  slideshow container  -->
+    <!-- Add this slideshow container somewhere within your existing structure -->
     <div class="carousel-container">
         <div id="carouselTrack" class="carousel-track">
             <div class="carousel-item">
@@ -337,6 +291,7 @@
 
     <!-- End of the slideshow container -->
 
+    <!-- Your existing HTML structure continues -->
 
     <!-- **************************************************************************************** -->
 
@@ -346,7 +301,7 @@
     </div>
     </header>
     <div class="content content--highlight content--intro">
-        <p class="text-large BurntSienna">Discover the Best Deals on Footwear, Only at SoleHearted</p>
+        <p class="text-large">Discover the Best Deals on Footwear, Only at SoleHearted</p>
     </div>
     <div class="wrap">
         <a href="target.html">
@@ -408,12 +363,12 @@
         </div> -->
     </div>
     <div class="content content--highlight content--outro">
-        <p class="text-large mandy ">Discover the perfect pair at SoleHearted. We bring you top-quality footwear at unbeatable
+        <p class="text-large">Discover the perfect pair at SoleHearted. We bring you top-quality footwear at unbeatable
             prices, ensuring every step is stylish and comfortable</p>
         <img class="content__img spacer" src="../images/boots.png" />
     </div>
     </div>
-    <a href="new.html" class="bg-blue-800">click here</a>
+    <a href="index1.html" class="bg-blue-800">click here</a>
     </main>
     <script src="../js/gsap.min.js"></script>
     <script src="../js/ScrollTrigger.min.js"></script>
