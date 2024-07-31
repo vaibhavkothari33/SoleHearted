@@ -26,13 +26,23 @@ googleLogin.addEventListener("click", function () {
       const credential = GoogleAuthProvider.credentialFromResult(result);
       const user = result.user;
       console.log(user);
-      window.location.href = "../dist/new.html";
+      window.location.href = "../dist/index2.html";
     }).catch((error) => {
       const errorCode = error.code;
       const errorMessage = error.message;
     })
 })
-// const googleLogin1 = document.getElementById("google-login1");
-// googleLogin1.addEventListener("click", function () {
-//   alert(5);
-// })
+const googleLogin1 = document.getElementById("google-login1");
+googleLogin1.addEventListener("click", function () {
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      const credential = GoogleAuthProvider.credentialFromResult(result);
+      const user = result.user;
+      console.log(user);
+      window.location.href = "../dist/index2.html";
+    }).catch((error) => {
+      const errorCode = error.code;
+      const errorMessage = error.message;
+    })
+
+})
