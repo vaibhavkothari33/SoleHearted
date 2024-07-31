@@ -90,10 +90,23 @@
         }
         #userProfilePicture{
             /* background-color: red; */
-            height: 20px;
-            width: 20px;
+            height: 30px;
+            width: 30px;
             border-radius: 50%;
-            /* margin-right: 52px; */
+        }
+        #userProfilePicture1{
+            /* background-color: red; */
+            height: 30px;
+            width: 30px;
+            border-radius: 50%;
+        }
+        .prof{
+            float: left;
+            margin-right: 45px;
+            margin-top:4px ;
+            }
+        .prof1{
+            float: right;
         }
 
 
@@ -151,12 +164,11 @@
             <div class="flex md:hidden items-center justify-between  w-full">
                 <button id="profile-button" class="text-slate-700 hover:text-gray-900">
                     <!-- Replace with your user profile icon SVG -->
-                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24" -->
+                    <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"></svg> -->
                    
 
                     <div id="google-login1">
-                    <img src="https://freesvg.org/img/abstract-user-flat-4.png" alt=""
-                    class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                    <img id="userProfilePicture1" >
                     </div>
                         <!-- <svg xmlns="https://freesvg.org/img/abstract-user-flat-4.png" class="h-6 w-6 BurntSienna" fill="none" viewBox="0 0 24 24"
                         stroke="currentColor">
@@ -216,14 +228,15 @@
                 <!-- Notification Bell Icon & Sign/Login -->
                 <div class="flex items-center space-x-4">
                     <button class="hidden md:block BurntSienna">
-                        <!-- Replace with your bell icon SVG -->
-                        <!-- <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" fill="none" viewBox="0 0 24 24"
-                            stroke="currentColor">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M15 17h5l-1.405-1.405A2.032 2.032 0 0118 14.158V11a6.002 6.002 0 00-4-5.659V4a2 2 0 10-4 0v1.341C7.67 7.165 6 9.388 6 12v2.159c0 .538-.214 1.055-.595 1.436L4 17h5m6 0v1a3 3 0 11-6 0v-1m6 0H9" />
-                        </svg> -->
-                        <img id="userProfilePicture" >
-                        <p id="userName"></p>
+                        <div class="prof">
+
+                            <p id="userName"></p>
+                        </div>
+                            
+                        <div class="prof1">
+
+                            <img id="userProfilePicture" >
+                        </div>
                         <!-- <p id="userEmail"></p> -->
                     </button>
                     <!-- <div id="google-login"
@@ -236,7 +249,7 @@
         <!-- Mobile Menu Dropdown -->
         <div id="mobile-menu" class="md:hidden bg-white shadow-md mt-2 hidden">
 
-            <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Sign in/ Login</a>
+            <!-- <div id="google-login1" class="block px-4 cursor-pointer py-2 text-center BurntSienna">Sign in/ Login</div> -->
             <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Home</a>
             <a href="target.html" class="block px-4 py-2 text-center BurntSienna">About Us</a>
             <a href="target.html" class="block px-4 py-2 text-center BurntSienna">Contact Us</a>
